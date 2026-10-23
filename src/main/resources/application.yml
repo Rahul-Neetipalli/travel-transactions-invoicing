@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: billing
+  datasource:
+    # File-backed H2 (the brief rules out in-memory), PostgreSQL compatibility mode, 10 s lock wait before a 503.
+    url: jdbc:h2:file:./data/billing;MODE=PostgreSQL;LOCK_TIMEOUT=10000
+    username: sa
+    password: ""
+    hikari:
+      # Headroom above the 16 overlapping requests the race tests fire; requests waiting on a row lock keep their connection.
+      maximum-pool-size: 20
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+server:
+  error:
+    whitelabel:
+      # Never answer with Spring's HTML error page; errors are JSON.
+      enabled: false

@@ -1,0 +1,16 @@
+# Local tooling
+.claude/
+
+# Build output / local DB
+target/
+build/
+data/
+*.db
+*.db-wal
+*.db-shm
+*.mv.db
+*.trace.db
+.env
+.idea/
+*.iml
+.DS_Store
